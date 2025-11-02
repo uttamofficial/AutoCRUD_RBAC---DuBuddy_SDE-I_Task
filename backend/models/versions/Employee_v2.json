@@ -1,0 +1,27 @@
+{
+  "name": "Employee",
+  "fields": [
+    {
+      "name": "id",
+      "type": "number",
+      "required": true,
+      "unique": true
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "timestamps": true,
+  "_version": 2,
+  "_timestamp": "2025-11-02T14:11:03.888Z"
+}

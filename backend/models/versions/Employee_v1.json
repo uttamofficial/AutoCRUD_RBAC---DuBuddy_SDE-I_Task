@@ -1,0 +1,57 @@
+{
+  "name": "Employee",
+  "fields": [
+    {
+      "name": "firstName",
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    {
+      "name": "age",
+      "type": "number",
+      "required": false,
+      "unique": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    {
+      "name": "hireDate",
+      "type": "date",
+      "required": false,
+      "unique": false
+    },
+    {
+      "name": "isActive",
+      "type": "boolean",
+      "required": false,
+      "unique": false
+    }
+  ],
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "timestamps": true,
+  "_version": 1,
+  "_timestamp": "2025-11-02T14:02:28.507Z"
+}

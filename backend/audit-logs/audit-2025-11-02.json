@@ -1,0 +1,223 @@
+[
+  {
+    "timestamp": "2025-11-02T14:02:28.508Z",
+    "action": "UPDATE",
+    "resourceType": "model",
+    "resourceName": "Employee",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 1,
+      "fieldCount": 6
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:02:34.816Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:02:53.988Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:10:42.786Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:11:03.889Z",
+    "action": "UPDATE",
+    "resourceType": "model",
+    "resourceName": "Employee",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 2,
+      "fieldCount": 1
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:11:04.402Z",
+    "action": "UPDATE",
+    "resourceType": "model",
+    "resourceName": "Employee",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 3,
+      "fieldCount": 1
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:11:10.323Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:11:32.721Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T14:18:38.580Z",
+    "action": "UPDATE",
+    "resourceType": "model",
+    "resourceName": "Employee",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 4,
+      "fieldCount": 1
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T15:29:42.242Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T17:53:52.913Z",
+    "action": "CREATE",
+    "resourceType": "model",
+    "resourceName": "MarketAnalysis",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 1,
+      "fieldCount": 1
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T18:22:49.643Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T18:43:03.364Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T18:52:02.091Z",
+    "action": "READ",
+    "resourceType": "model",
+    "resourceName": "all",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "action": "reload",
+      "count": 3
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T19:56:37.520Z",
+    "action": "READ",
+    "resourceType": "record",
+    "resourceName": "Product",
+    "modelName": "Product",
+    "recordId": null,
+    "userId": 1762113394902,
+    "userEmail": "viewer@example.com",
+    "details": {
+      "count": 0
+    }
+  },
+  {
+    "timestamp": "2025-11-02T19:56:39.140Z",
+    "action": "READ",
+    "resourceType": "record",
+    "resourceName": "Employee",
+    "modelName": "Employee",
+    "recordId": null,
+    "userId": 1762113394902,
+    "userEmail": "viewer@example.com",
+    "details": {
+      "count": 0
+    }
+  },
+  {
+    "timestamp": "2025-11-02T19:56:39.708Z",
+    "action": "READ",
+    "resourceType": "record",
+    "resourceName": "Customer",
+    "modelName": "Customer",
+    "recordId": null,
+    "userId": 1762113394902,
+    "userEmail": "viewer@example.com",
+    "details": {
+      "count": 0
+    }
+  }
+]
