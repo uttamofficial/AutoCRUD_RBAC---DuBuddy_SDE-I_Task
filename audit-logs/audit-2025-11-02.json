@@ -1,0 +1,41 @@
+[
+  {
+    "timestamp": "2025-11-02T20:52:14.902Z",
+    "action": "CREATE",
+    "resourceType": "model",
+    "resourceName": "Customer",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 1,
+      "fieldCount": 6
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T20:53:43.986Z",
+    "action": "CREATE",
+    "resourceType": "model",
+    "resourceName": "Product",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 1,
+      "fieldCount": 7
+    },
+    "ip": null
+  },
+  {
+    "timestamp": "2025-11-02T20:53:53.222Z",
+    "action": "CREATE",
+    "resourceType": "model",
+    "resourceName": "Employee",
+    "userId": null,
+    "userEmail": "system",
+    "details": {
+      "version": 1,
+      "fieldCount": 1
+    },
+    "ip": null
+  }
+]

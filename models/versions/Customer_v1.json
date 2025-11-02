@@ -1,0 +1,59 @@
+{
+  "name": "Customer",
+  "fields": [
+    {
+      "name": "id",
+      "type": "number",
+      "required": true,
+      "unique": true
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    {
+      "name": "phone",
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "type": "number",
+      "required": false,
+      "unique": false
+    }
+  ],
+  "ownerField": "createdBy",
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update",
+      "delete"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "timestamps": true,
+  "_version": 1,
+  "_timestamp": "2025-11-02T20:52:14.901Z"
+}

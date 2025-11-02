@@ -1,0 +1,65 @@
+{
+  "name": "Product",
+  "fields": [
+    {
+      "name": "id",
+      "type": "number",
+      "required": true,
+      "unique": true
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "required": true,
+      "unique": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    {
+      "name": "inStock",
+      "type": "boolean",
+      "required": false,
+      "unique": false,
+      "default": true
+    },
+    {
+      "name": "createdAt",
+      "type": "date",
+      "required": false,
+      "unique": false
+    },
+    {
+      "name": "ownerId",
+      "type": "number",
+      "required": true,
+      "unique": false
+    }
+  ],
+  "ownerField": "ownerId",
+  "rbac": {
+    "Admin": [
+      "all"
+    ],
+    "Manager": [
+      "create",
+      "read",
+      "update"
+    ],
+    "Viewer": [
+      "read"
+    ]
+  },
+  "timestamps": true,
+  "_version": 1,
+  "_timestamp": "2025-11-02T20:53:43.983Z"
+}
