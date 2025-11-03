@@ -1,4 +1,23 @@
-const API_BASE_URL = 'http://localhost:4000/api';
+const normalizeBaseUrl = (value?: string) => {
+  if (!value) return undefined;
+  return value.endsWith('/') ? value.slice(0, -1) : value;
+};
+
+const resolveSameOriginBase = (suffix: string) => {
+  if (typeof window !== 'undefined') {
+    return `${window.location.origin}${suffix}`;
+  }
+  return `http://localhost:4000${suffix}`;
+};
+
+const resolveBaseUrl = (envValue: string | undefined, fallbackSuffix: string) => {
+  const fromEnv = normalizeBaseUrl(envValue);
+  if (fromEnv) return fromEnv;
+  return resolveSameOriginBase(fallbackSuffix);
+};
+
+const API_BASE_URL = resolveBaseUrl(import.meta.env.VITE_API_BASE_URL as string | undefined, '/api');
+const AUTH_BASE_URL = resolveBaseUrl(import.meta.env.VITE_AUTH_BASE_URL as string | undefined, '/auth');
 
 // Token management
 let authToken: string | null = localStorage.getItem('authToken');
@@ -124,7 +143,7 @@ export const api = {
 
   // Authentication
   login: async (email: string, password: string): Promise<ApiResponse<{ token: string; user: any }>> => {
-    const response = await fetch(`http://localhost:4000/auth/login`, {
+  const response = await fetch(`${AUTH_BASE_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -136,7 +155,7 @@ export const api = {
 
   // Generate mock token for testing
   getMockToken: async (userId: number, email: string, role: string): Promise<ApiResponse<{ token: string }>> => {
-    const response = await fetch(`http://localhost:4000/auth/mock-token`, {
+  const response = await fetch(`${AUTH_BASE_URL}/mock-token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
