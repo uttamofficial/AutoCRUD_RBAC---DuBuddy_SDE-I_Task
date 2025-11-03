@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import ModelsList from './pages/ModelsList';
 import CreateModel from './pages/CreateModel';
@@ -7,33 +7,9 @@ import Admin from './pages/Admin';
 import AuditLogs from './pages/AuditLogs';
 import './App.css';
 
-function RedirectOnRefresh() {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Check if this is a fresh page load (not a client-side navigation)
-    // React Router v6+ sets 'key' in navigation state for client-side navigations
-    const navigationState = window.history.state;
-    const isPageRefresh = !navigationState || (!navigationState.usr && !navigationState.key);
-    
-    // Only redirect on actual page refresh/reload, not on initial mount of homepage
-    if (isPageRefresh && location.pathname !== '/' && location.pathname !== '') {
-      // Small delay to ensure React Router has initialized
-      const timer = setTimeout(() => {
-        navigate('/', { replace: true });
-      }, 0);
-      return () => clearTimeout(timer);
-    }
-  }, [location.pathname, navigate]);
-
-  return null;
-}
-
 export default function App() {
   return (
     <Router>
-      <RedirectOnRefresh />
       <div className="app">
         <header className="app-header">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
