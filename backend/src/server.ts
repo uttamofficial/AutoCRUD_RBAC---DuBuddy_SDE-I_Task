@@ -45,38 +45,11 @@ app.use('/auth', authRouter);
 app.use('/api/models', modelRouter);
 app.use('/api/crud', crudRouter);
 
-app.get('/', (_req: Request, res: Response) => {
-  res.send('AutoCRUD-RBAC Backend is running');
-});
-
-// SPA fallback: for any GET request that isn't an API or auth route,
-// return the frontend index.html so client-side routing can take over.
-// SPA fallback: only handle GET requests that accept HTML and are not API/auth paths.
-app.get('*', (req: Request, res: Response, next: NextFunction) => {
-  if (req.method !== 'GET') {
-    return next();
-  }
-
-  if (req.path.startsWith('/api') || req.path.startsWith('/auth')) {
-    return next();
-  }
-
-  const acceptHeader = req.headers.accept || '';
-  if (acceptHeader && !acceptHeader.includes('text/html')) {
-    return next();
-  }
-
-  const indexHtml = path.join(frontendDistPath, 'index.html');
-
-  res.sendFile(indexHtml, (err) => {
-    if (err) {
-      console.error('Error sending frontend index.html for', req.path, err);
-      if (!res.headersSent) {
-        const statusCode = (err as any).status || 500;
-        res.status(statusCode).send((err as any).message || 'Error serving index.html');
-      }
-    }
-  });
+// SPA fallback: Catch-all route for frontend - MUST BE LAST!
+// This serves index.html for all routes that aren't API/auth endpoints
+// so React Router can handle client-side routing
+app.get('*', (_req: Request, res: Response) => {
+  res.sendFile(path.join(frontendDistPath, 'index.html'));
 });
 
 const port = Number(process.env.PORT || 4000);
