@@ -5,6 +5,108 @@ RESTful API endpoints for managing dynamic model definitions with validation and
 ## Base URL
 
 ```
+http://localhost:4000
+```
+
+## General Endpoints
+
+### Home / Root
+
+**GET** `/api/home`
+
+Returns welcome information and API overview.
+
+**Response** (200 OK):
+```json
+{
+  "message": "Welcome to AutoCRUD-RBAC API",
+  "description": "A powerful dynamic model builder with automatic CRUD operations and role-based access control",
+  "version": "1.0.0",
+  "timestamp": "2025-11-03T...",
+  "features": [
+    "Dynamic model creation",
+    "Automatic CRUD operations",
+    "Role-based access control",
+    "Model versioning",
+    "Hot reload support",
+    "Comprehensive audit logs"
+  ],
+  "endpoints": {
+    "health": {
+      "path": "/health",
+      "method": "GET",
+      "description": "Health check endpoint"
+    },
+    "home": {
+      "path": "/api/home",
+      "method": "GET",
+      "description": "Home page information"
+    },
+    "auth": {
+      "path": "/auth/*",
+      "description": "Authentication endpoints"
+    },
+    "models": {
+      "path": "/api/models/*",
+      "description": "Model management endpoints"
+    },
+    "crud": {
+      "path": "/api/crud/:modelName/*",
+      "description": "CRUD operations for dynamic models"
+    }
+  }
+}
+```
+
+---
+
+### API Information
+
+**GET** `/api/home/info`
+
+Returns detailed API information and capabilities.
+
+**Response** (200 OK):
+```json
+{
+  "name": "AutoCRUD-RBAC API",
+  "version": "1.0.0",
+  "description": "Dynamic model builder with automatic CRUD operations and role-based access control",
+  "features": {
+    "dynamicModels": {
+      "description": "Create and manage data models dynamically",
+      "capabilities": [...]
+    },
+    "crud": {...},
+    "rbac": {...},
+    "auditing": {...}
+  }
+}
+```
+
+---
+
+### Health Check
+
+**GET** `/health`
+
+Basic health check endpoint.
+
+**Response** (200 OK):
+```json
+{
+  "status": "ok",
+  "timestamp": 1699012345678
+}
+```
+
+---
+
+## Model Endpoints
+
+### Base URL for Models
+
+```
 http://localhost:4000/api/models
 ```
 

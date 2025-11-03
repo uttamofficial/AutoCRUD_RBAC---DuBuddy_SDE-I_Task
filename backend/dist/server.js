@@ -11,6 +11,7 @@ const prisma_1 = __importDefault(require("./prisma"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const modelRoutes_1 = __importDefault(require("./routes/modelRoutes"));
 const crud_1 = __importDefault(require("./routes/crud"));
+const home_1 = __importDefault(require("./routes/home"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 // CORS configuration - Allow frontend from environment variable
@@ -39,6 +40,7 @@ app.use(express_1.default.static(frontendDistPath));
 app.get('/health', (_req, res) => {
     res.json({ status: 'ok', timestamp: Date.now() });
 });
+app.use('/api/home', home_1.default);
 app.use('/auth', auth_1.default);
 app.use('/api/models', modelRoutes_1.default);
 app.use('/api/crud', crud_1.default);

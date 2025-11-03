@@ -6,6 +6,7 @@ import prisma from './prisma';
 import authRouter from './routes/auth';
 import modelRouter from './routes/modelRoutes';
 import crudRouter from './routes/crud';
+import homeRouter from './routes/home';
 
 dotenv.config();
 
@@ -41,6 +42,7 @@ app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', timestamp: Date.now() });
 });
 
+app.use('/api/home', homeRouter);
 app.use('/auth', authRouter);
 app.use('/api/models', modelRouter);
 app.use('/api/crud', crudRouter);
