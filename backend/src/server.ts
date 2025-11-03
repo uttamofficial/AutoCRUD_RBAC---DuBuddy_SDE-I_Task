@@ -50,17 +50,23 @@ app.get('/', (_req: Request, res: Response) => {
 
 // SPA fallback: for any GET request that isn't an API or auth route,
 // return the frontend index.html so client-side routing can take over.
-// SPA fallback: serve index.html for all other GET requests that
-// were not handled by previous routes (API/auth/static). Placed
-// after API routes so they take precedence.
-app.get('/*', (req: Request, res: Response) => {
+// SPA fallback: only handle GET requests that accept HTML and are not API/auth paths.
+app.get('*', (req: Request, res: Response, next: NextFunction) => {
   if (req.method !== 'GET') {
-    return res.status(405).send('Method not allowed');
+    return next();
+  }
+
+  if (req.path.startsWith('/api') || req.path.startsWith('/auth')) {
+    return next();
+  }
+
+  const acceptHeader = req.headers.accept || '';
+  if (acceptHeader && !acceptHeader.includes('text/html')) {
+    return next();
   }
 
   const indexHtml = path.join(frontendDistPath, 'index.html');
 
-  // sendFile will handle 404/500 internally; add a simple callback to log if it fails
   res.sendFile(indexHtml, (err) => {
     if (err) {
       console.error('Error sending frontend index.html for', req.path, err);
