@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link, useLocation, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import ModelsList from './pages/ModelsList';
 import CreateModel from './pages/CreateModel';
@@ -7,9 +7,27 @@ import Admin from './pages/Admin';
 import AuditLogs from './pages/AuditLogs';
 import './App.css';
 
+function RedirectOnRefresh() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if this is a fresh page load (not a client-side navigation)
+    const isRefresh = !window.history.state?.usr;
+    
+    // If it's a refresh and we're not on the homepage, redirect to home
+    if (isRefresh && location.pathname !== '/') {
+      navigate('/', { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <Router>
+      <RedirectOnRefresh />
       <div className="app">
         <header className="app-header">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
