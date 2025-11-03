@@ -13,13 +13,19 @@ function RedirectOnRefresh() {
 
   useEffect(() => {
     // Check if this is a fresh page load (not a client-side navigation)
-    const isRefresh = !window.history.state?.usr;
+    // React Router v6+ sets 'key' in navigation state for client-side navigations
+    const navigationState = window.history.state;
+    const isPageRefresh = !navigationState || (!navigationState.usr && !navigationState.key);
     
-    // If it's a refresh and we're not on the homepage, redirect to home
-    if (isRefresh && location.pathname !== '/') {
-      navigate('/', { replace: true });
+    // Only redirect on actual page refresh/reload, not on initial mount of homepage
+    if (isPageRefresh && location.pathname !== '/' && location.pathname !== '') {
+      // Small delay to ensure React Router has initialized
+      const timer = setTimeout(() => {
+        navigate('/', { replace: true });
+      }, 0);
+      return () => clearTimeout(timer);
     }
-  }, [location, navigate]);
+  }, [location.pathname, navigate]);
 
   return null;
 }
