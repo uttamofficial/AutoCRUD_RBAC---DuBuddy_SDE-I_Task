@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import Home from './pages/Home';
 import ModelsList from './pages/ModelsList';
 import CreateModel from './pages/CreateModel';
 import Admin from './pages/Admin';
@@ -17,6 +18,9 @@ export default function App() {
               <p className="app-subtitle">Dynamic Model Builder</p>
             </div>
             <nav style={{ display: 'flex', gap: '1rem' }}>
+              <Link to="/" style={{ color: 'white', textDecoration: 'none', fontWeight: '500' }}>
+                🏠 Home
+              </Link>
               <Link to="/models" style={{ color: 'white', textDecoration: 'none', fontWeight: '500' }}>
                 📋 Models
               </Link>
@@ -31,7 +35,7 @@ export default function App() {
         </header>
         <main className="app-main">
           <Routes>
-            <Route path="/" element={<Navigate to="/models" replace />} />
+            <Route path="/" element={<Home />} />
             <Route path="/models" element={<ModelsList />} />
             <Route path="/models/new" element={<CreateModel />} />
             <Route path="/admin" element={<Admin />} />
