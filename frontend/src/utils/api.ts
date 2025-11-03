@@ -1,23 +1,8 @@
-const normalizeBaseUrl = (value?: string) => {
-  if (!value) return undefined;
-  return value.endsWith('/') ? value.slice(0, -1) : value;
-};
+// Use the deployed backend URL directly
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://autocrud-rbac-dubuddy-sde-i-task-backend.onrender.com';
 
-const resolveSameOriginBase = (suffix: string) => {
-  if (typeof window !== 'undefined') {
-    return `${window.location.origin}${suffix}`;
-  }
-  return `http://localhost:4000${suffix}`;
-};
-
-const resolveBaseUrl = (envValue: string | undefined, fallbackSuffix: string) => {
-  const fromEnv = normalizeBaseUrl(envValue);
-  if (fromEnv) return fromEnv;
-  return resolveSameOriginBase(fallbackSuffix);
-};
-
-const API_BASE_URL = resolveBaseUrl(import.meta.env.VITE_API_BASE_URL as string | undefined, '/api');
-const AUTH_BASE_URL = resolveBaseUrl(import.meta.env.VITE_AUTH_BASE_URL as string | undefined, '/auth');
+const API_BASE_URL = `${BACKEND_URL}/api`;
+const AUTH_BASE_URL = `${BACKEND_URL}/auth`;
 
 // Token management
 let authToken: string | null = localStorage.getItem('authToken');

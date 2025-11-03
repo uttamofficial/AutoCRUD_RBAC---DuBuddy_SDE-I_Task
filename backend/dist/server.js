@@ -17,6 +17,7 @@ const app = (0, express_1.default)();
 const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:5174',
+    'https://autocrud-rbac.onrender.com',
 ];
 // Add production frontend URL if set
 if (process.env.FRONTEND_URL) {
